@@ -1,0 +1,747 @@
+/* =========================================
+   BRIDGERTON THEME: ROYAL STYLE SHEET
+   ========================================= */
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    /* WEDGWOOD BLUE PAGE BACKGROUND (SATIN) */
+    background-color: #A4C8E6;
+    background-image:
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        url('bridgerton_yes_texture.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: soft-light;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- GOLDEN FRAME OVERLAY --- */
+#frame {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    z-index: 90;
+    border: 3px double #C5A028;
+    /* Classic Gold */
+    border-radius: 20px;
+    pointer-events: none;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+#frame::after,
+#frame::before {
+    content: "❦";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #A4C8E6;
+    /* Match Page Blue */
+    padding: 0 15px;
+    color: #C5A028;
+    font-size: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+#frame::after {
+    top: -22px;
+}
+
+#frame::before {
+    bottom: -22px;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+/* --- MAIN CONTAINER --- */
+#container {
+    text-align: center;
+    z-index: 10;
+    transition: opacity 1s ease;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.8rem;
+    line-height: 1.3;
+    color: #3A2A25;
+    /* Darker Bronze/Brown for legibility on blue */
+    text-align: center;
+    margin-top: -5px;
+    /* Final micro-adjustment */
+    margin-bottom: 25px;
+    /* Maintain button stability */
+    max-width: 90%;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+    transition: color 0.8s ease;
+    animation: pulse-text 3s ease-in-out infinite;
+    position: relative;
+    padding: 0 20px;
+
+    /* STABILITY LOCK */
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes pulse-text {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* --- BUTTONS: "Linen Stationery" --- */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 4rem;
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    margin-top: 3rem;
+    transition: gap 1.5s ease;
+}
+
+#no-btn-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: auto;
+    height: auto;
+    z-index: 5;
+    transition: width 1.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+button {
+    /* DELICATE REGENCY STYLE */
+    padding: 15px 50px;
+    font-size: 1.15rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    border-radius: 4px;
+    /* More like a sharp-edged card */
+
+    /* Double Gold Border Logic */
+    border: 2px solid #C5A028;
+    outline: 1px solid #C5A028;
+    outline-offset: -5px;
+
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    overflow: visible !important;
+    transition: all 0.4s ease;
+
+    /* CRISP LINEN BACKGROUND (TEXTURE REMOVED TO POP) */
+    background-color: #FEFDF9;
+    color: #222222;
+
+    /* Subtle depth to feel "raised" on the blue silk */
+    box-shadow:
+        0 4px 0 rgba(197, 160, 40, 0.2),
+        0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* YES BUTTON */
+#yes-btn {
+    z-index: 2;
+}
+
+#yes-btn:hover {
+    background-color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 0 rgba(197, 160, 40, 0.3),
+        0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.reveal-active #yes-btn {
+    transform: scale(1.05);
+    background-color: #FFFFFF;
+}
+
+/* NO BUTTON */
+#no-btn {
+    z-index: 3;
+    opacity: 0.98;
+    pointer-events: none !important;
+    background-color: #FEFDF9;
+}
+
+#no-btn * {
+    pointer-events: none !important;
+}
+
+/* --- WINGS: "Matching Ivory Ornaments" --- */
+.wing {
+    position: absolute;
+    width: 24px;
+    height: 14px;
+    background-color: #FEFDF9;
+    /* Match Linen Button */
+    border: 1px solid #5D4037;
+    border-radius: 0 50% 50% 0;
+    top: 50%;
+    z-index: -1;
+    pointer-events: none;
+
+    /* HIDDEN BY DEFAULT */
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* DEFAULT STATE: Static */
+    animation-play-state: paused !important;
+}
+
+#no-btn-wrapper.is-flying .wing {
+    opacity: 1;
+    visibility: visible;
+    animation-play-state: running !important;
+}
+
+body.reveal-active .wing {
+    background-color: #FFF;
+    border-color: #FFD700;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.wing.left {
+    left: -20px;
+    border-radius: 50% 0 0 50%;
+    transform-origin: right center;
+    animation: flutter-left 0.15s infinite alternate ease-in-out;
+}
+
+.wing.right {
+    right: -20px;
+    border-radius: 0 50% 50% 0;
+    transform-origin: left center;
+    animation: flutter-right 0.15s infinite alternate ease-in-out;
+}
+
+@keyframes flutter-left {
+    0% {
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+    100% {
+        transform: translateY(-80%) rotate(25deg);
+    }
+}
+
+@keyframes flutter-right {
+    0% {
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateY(-80%) rotate(-25deg);
+    }
+}
+
+/* --- BACKGROUND REVEAL (GRID) --- */
+#bg-reveal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: grid;
+    pointer-events: none;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: auto;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    background-color: #000;
+}
+
+#bg-reveal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+body.reveal-active #bg-reveal {
+    opacity: 1;
+}
+
+body.reveal-active h1 {
+    color: #FDFBF0;
+    text-shadow: 0 0 10px #000, 0 0 20px rgba(212, 175, 55, 0.8), 2px 2px 0 #000;
+    transform: scale(1.05);
+}
+
+/* --- FINAL SCREEN (SUCCESS) --- */
+#final-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2s ease;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+#final-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 4px solid #D4AF37;
+}
+
+/* --- DECORATIVE FILIGREE CORNERS --- */
+.corner-decor {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    z-index: 95;
+    pointer-events: none;
+    border: 2px solid #C5A028;
+    opacity: 0.4;
+}
+
+.top-left {
+    top: 30px;
+    left: 30px;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 15px 0 0 0;
+}
+
+.top-right {
+    top: 30px;
+    right: 30px;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 15px 0 0;
+}
+
+.bottom-left {
+    bottom: 30px;
+    left: 30px;
+    border-right: none;
+    border-top: none;
+    border-radius: 0 0 0 15px;
+}
+
+.bottom-right {
+    bottom: 30px;
+    right: 30px;
+    border-left: none;
+    border-top: none;
+    border-radius: 0 0 15px 0;
+}
+
+.corner-decor::after {
+    content: "✿";
+    position: absolute;
+    color: #C5A028;
+    font-size: 20px;
+}
+
+.top-left::after {
+    bottom: -10px;
+    right: -10px;
+}
+
+.top-right::after {
+    bottom: -10px;
+    left: -10px;
+}
+
+.bottom-left::after {
+    top: -10px;
+    right: -10px;
+}
+
+.bottom-right::after {
+    top: -10px;
+    left: -10px;
+}
+
+/* --- FALLING LILIES (CSS) --- */
+.falling-lilies {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.lily {
+    position: absolute;
+    width: 12px;
+    height: 22px;
+    background: radial-gradient(circle at 40% 40%, #FFFFFF 0%, #F5F5F0 70%, #EEE8AA 100%);
+    border-radius: 80% 10% 80% 10%;
+    /* Elongated leaf shape for Lily petals */
+    opacity: 0.7;
+    top: -30px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.4);
+    animation: petal-fall linear infinite;
+}
+
+@keyframes petal-fall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    25% {
+        transform: translateY(25vh) translateX(40px) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(-25px) rotate(180deg);
+        opacity: 0.5;
+    }
+
+    75% {
+        transform: translateY(75vh) translateX(30px) rotate(270deg);
+    }
+
+    100% {
+        transform: translateY(105vh) translateX(-15px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Variance for Lilies (20 petals for abundance) */
+.l-1 {
+    left: 5%;
+    width: 14px;
+    height: 24px;
+    animation-duration: 14s;
+    animation-delay: 0s;
+}
+
+.l-2 {
+    left: 15%;
+    width: 10px;
+    height: 20px;
+    animation-duration: 18s;
+    animation-delay: -2s;
+}
+
+.l-3 {
+    left: 25%;
+    width: 13px;
+    height: 23px;
+    animation-duration: 22s;
+    animation-delay: -4s;
+}
+
+.l-4 {
+    left: 35%;
+    width: 11px;
+    height: 21px;
+    animation-duration: 16s;
+    animation-delay: -6s;
+}
+
+.l-5 {
+    left: 45%;
+    width: 14px;
+    height: 25px;
+    animation-duration: 25s;
+    animation-delay: -8s;
+}
+
+.l-6 {
+    left: 55%;
+    width: 12px;
+    height: 22px;
+    animation-duration: 15s;
+    animation-delay: -10s;
+}
+
+.l-7 {
+    left: 65%;
+    width: 15px;
+    height: 26px;
+    animation-duration: 19s;
+    animation-delay: -1s;
+}
+
+.l-8 {
+    left: 75%;
+    width: 11px;
+    height: 19px;
+    animation-duration: 17s;
+    animation-delay: -3s;
+}
+
+.l-9 {
+    left: 85%;
+    width: 13px;
+    height: 22px;
+    animation-duration: 21s;
+    animation-delay: -5s;
+}
+
+.l-10 {
+    left: 95%;
+    width: 10px;
+    height: 18px;
+    animation-duration: 24s;
+    animation-delay: -7s;
+}
+
+.l-11 {
+    left: 10%;
+    width: 12px;
+    height: 21px;
+    animation-duration: 20s;
+    animation-delay: -11s;
+}
+
+.l-12 {
+    left: 20%;
+    width: 14px;
+    height: 24px;
+    animation-duration: 13s;
+    animation-delay: -13s;
+}
+
+.l-13 {
+    left: 30%;
+    width: 11px;
+    height: 20px;
+    animation-duration: 16s;
+    animation-delay: -15s;
+}
+
+.l-14 {
+    left: 40%;
+    width: 13px;
+    height: 23px;
+    animation-duration: 18s;
+    animation-delay: -17s;
+}
+
+.l-15 {
+    left: 50%;
+    width: 15px;
+    height: 26px;
+    animation-duration: 23s;
+    animation-delay: -19s;
+}
+
+.l-16 {
+    left: 60%;
+    width: 12px;
+    height: 22px;
+    animation-duration: 14s;
+    animation-delay: -21s;
+}
+
+.l-17 {
+    left: 70%;
+    width: 10px;
+    height: 19px;
+    animation-duration: 21s;
+    animation-delay: -23s;
+}
+
+.l-18 {
+    left: 80%;
+    width: 14px;
+    height: 24px;
+    animation-duration: 17s;
+    animation-delay: -25s;
+}
+
+.l-19 {
+    left: 90%;
+    width: 11px;
+    height: 21px;
+    animation-duration: 19s;
+    animation-delay: -27s;
+}
+
+.l-20 {
+    left: 5%;
+    width: 13px;
+    height: 22px;
+    animation-duration: 22s;
+    animation-delay: -29s;
+}
+
+
+/* --- SUCCESS SCREEN: PRIVATE LETTER --- */
+#final-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 12, 10, 0.95);
+    /* Intimate Atmosphere */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+    z-index: 1000;
+}
+
+#success-letter {
+    background-color: #FEFDF9;
+    /* Ivory Stationery */
+    width: 100%;
+    height: 100%;
+    padding: 100px;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: none;
+    border-radius: 0;
+    background-image: url('LetterBg.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body.reveal-active #success-letter,
+#final-screen[style*="opacity: 1"] #success-letter {
+    transform: scale(1) rotate(0deg);
+}
+
+.letter-content {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: #3A2A25;
+    font-style: italic;
+    text-align: center;
+    max-width: 800px;
+}
+
+.letter-content p {
+    margin-bottom: 2rem;
+}
+
+/* --- WAX SEAL (RED PRESS) --- */
+.wax-seal,
+#wax-seal {
+    position: fixed;
+    bottom: 60px;
+    right: 80px;
+    z-index: 96;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 30% 30%, #A11D33, #800000);
+    /* Bridgerton Red Wax */
+    border-radius: 50%;
+    box-shadow:
+        2px 4px 10px rgba(0, 0, 0, 0.4),
+        inset -3px -3px 6px rgba(0, 0, 0, 0.2),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(5deg);
+    pointer-events: none;
+}
+
+#letter-seal {
+    display: none;
+}
+
+.wax-seal::before,
+#wax-seal::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, transparent 60%, rgba(128, 0, 0, 0.4) 100%);
+}
+
+.seal-inner {
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.seal-symbol {
+    color: rgba(197, 160, 40, 0.6);
+    /* Softened Gold */
+    font-size: 28px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-family: 'Playfair Display', serif;
+}
+
+.flower {
+    position: fixed;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 1;
+    will-change: transform;
+    transform: translate3d(-50%, -50%, 0);
+    backface-visibility: hidden;
+}

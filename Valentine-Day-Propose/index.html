@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="bg-reveal"></div>
+    <div id="frame"></div><!-- Golden Frame -->
+
+    <!-- DECORATIVE ELEMENTS -->
+    <div class="corner-decor top-left"></div>
+    <div class="corner-decor top-right"></div>
+    <div class="corner-decor bottom-left"></div>
+    <div class="corner-decor bottom-right"></div>
+
+    <div class="falling-lilies">
+        <div class="lily l-1"></div>
+        <div class="lily l-2"></div>
+        <div class="lily l-3"></div>
+        <div class="lily l-4"></div>
+        <div class="lily l-5"></div>
+        <div class="lily l-6"></div>
+        <div class="lily l-7"></div>
+        <div class="lily l-8"></div>
+        <div class="lily l-9"></div>
+        <div class="lily l-10"></div>
+        <div class="lily l-11"></div>
+        <div class="lily l-12"></div>
+        <div class="lily l-13"></div>
+        <div class="lily l-14"></div>
+        <div class="lily l-15"></div>
+        <div class="lily l-16"></div>
+        <div class="lily l-17"></div>
+        <div class="lily l-18"></div>
+        <div class="lily l-19"></div>
+        <div class="lily l-20"></div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="bridgerton_music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="blast-sound">
+        <source src="blast.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="yeah-sound">
+        <source src="yeah.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="wax-seal">
+        <div class="seal-inner">
+            <span class="seal-symbol">❦</span>
+        </div>
+    </div>
+
+    <div id="container">
+        <h1>Before the ton and all its knowing eyes,<br>may I have the honour of being your Valentine?</h1>
+        <div class="buttons">
+            <button id="yes-btn">Yes</button>
+            <div id="no-btn-wrapper">
+                <button id="no-btn">
+                    No
+                    <div class="wing left" id="wing-l"></div>
+                    <div class="wing right" id="wing-r"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="final-screen">
+        <div id="success-letter">
+            <div class="letter-content">
+                <p>What is most precious is often kept from the world, and so I give you these words quietly.</p>
+                <p>Your "Yes" was not overheard by the ton, nor announced to any curious ear yet it has settled most
+                    firmly with me, as though something long unsettled has finally found its place.</p>
+                <p>In that single word, you offered me a confidence I did not know I lacked, and a warmth I find myself
+                    returning to without effort.</p>
+                <p>Let this Valentine remain ours alone, known only in glances and in moments stolen from the ordinary.
+                    I find I prefer it that way; choosing you, quietly, again and again.</p>
+            </div>
+            <div id="letter-seal" class="wax-seal">
+                <div class="seal-inner">
+                    <span class="seal-symbol">❦</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
