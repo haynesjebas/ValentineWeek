@@ -1,0 +1,30 @@
+ou are working inside my existing Python project.
+
+Context:
+- gen_vo.py generates narration audio files (.mp3) and saves them under assets/audio/
+- main.py currently renders visuals and plays audio at runtime, but does not save any video file
+- The project already runs successfully on my system
+
+Goal:
+- Export the visual output as a playable MP4 video file
+- The MP4 must include the narration audio and remain in sync with the visuals
+- The MP4 should be saved automatically when main.py finishes running
+
+Requirements:
+- Do NOT change the story, text, visuals, timing, or audio content
+- Do NOT remove on-screen playback; playback can still occur
+- Do NOT modify gen_vo.py
+- Choose any stable, standard Python approach to capture frames and write an MP4 file
+- The output file must be playable in a web browser
+
+Output details:
+- File name: output.mp4
+- Location: same directory as main.py
+
+Deliverable:
+- Update main.py so that running:
+  python main.py
+  automatically produces:
+  output.mp4
+
+Do not explain the theory. Implement the solution cleanly.
